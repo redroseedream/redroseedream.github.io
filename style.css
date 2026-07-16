@@ -1,0 +1,75 @@
+/* Red Rose Dream 网站主样式 */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Microsoft YaHei", Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(135deg, #8b0000, #b22222);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+h1 {
+    margin: 0 0 20px;
+    font-size: 45px;
+}
+
+header p {
+    margin: 0;
+    font-size: 18px;
+}
+
+main {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    color: #8b0000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 55px 20px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    main {
+        margin: 25px auto;
+        padding: 15px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+}
