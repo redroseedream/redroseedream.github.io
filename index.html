@@ -2,72 +2,472 @@
 <html lang="zh-CN">
 
 <head>
+    <meta charset="UTF-8">
 
-<meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Rose Dream</title>
 
-<title>Red Rose Dream</title>
-<link rel="stylesheet" href="style.css">
-
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+<!-- 顶部导航栏 -->
+<nav class="top-nav">
 
-<header>
+    <a class="logo" href="#home">
+        <span class="logo-icon">🌹</span>
+        <span>Red Rose Dream</span>
+    </a>
 
-<h1>Red Rose Dream</h1>
+    <div class="search-box">
+        <input
+            type="search"
+            placeholder="搜索视频、导图、文章和资源"
+            aria-label="搜索网站内容"
+        >
 
-<p>My Personal Knowledge Garden</p>
+        <button type="button">
+            搜索
+        </button>
+    </div>
+
+    <div class="top-links">
+        <a href="#recommend">推荐</a>
+        <a href="#about">关于我</a>
+    </div>
+
+</nav>
+
+
+<!-- 网站标题区域 -->
+<header id="home" class="hero">
+
+    <div class="hero-content">
+
+        <p class="hero-label">
+            MY PERSONAL KNOWLEDGE GARDEN
+        </p>
+
+        <h1>Red Rose Dream</h1>
+
+        <p class="hero-description">
+            收藏知识、整理思想、记录成长，建立属于自己的数字知识花园。
+        </p>
+
+        <a class="hero-button" href="#recommend">
+            开始浏览
+        </a>
+
+    </div>
 
 </header>
 
 
+<!-- 六个栏目入口 -->
+<section class="category-area">
 
-<main>
+    <div class="category-grid">
 
-<div class="card">
+        <a class="category-item" href="#recommend">
+            <span class="category-icon">⭐</span>
+            <span>推荐内容</span>
+        </a>
+
+        <a class="category-item" href="#videos">
+            <span class="category-icon">▶️</span>
+            <span>视频中心</span>
+        </a>
+
+        <a class="category-item" href="#mindmaps">
+            <span class="category-icon">🧠</span>
+            <span>思维导图</span>
+        </a>
+
+        <a class="category-item" href="#articles">
+            <span class="category-icon">📝</span>
+            <span>文章笔记</span>
+        </a>
+
+        <a class="category-item" href="#resources">
+            <span class="category-icon">🔗</span>
+            <span>资源链接</span>
+        </a>
+
+        <a class="category-item" href="#about">
+            <span class="category-icon">👤</span>
+            <span>关于我</span>
+        </a>
+
+    </div>
+
+</section>
 
 
-<h2>我的思维导图库</h2>
+<main class="page-content">
+
+    <!-- 推荐内容 -->
+    <section id="recommend" class="content-section">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-label">FEATURED</span>
+                <h2>推荐内容</h2>
+            </div>
+
+            <a href="#mindmaps">查看全部</a>
+        </div>
+
+        <div class="card-grid">
+
+            <article class="content-card featured-card">
+
+                <div class="card-cover mindmap-cover">
+                    <span>🧠</span>
+                </div>
+
+                <div class="card-body">
+
+                    <span class="card-tag">
+                        思维导图
+                    </span>
+
+                    <h3>如何讲好一个故事</h3>
+
+                    <p>
+                        从故事结构、人物塑造和表达技巧等方面，整理讲故事的核心方法。
+                    </p>
+
+                    <a
+                        class="card-button"
+                        href="storytelling.svg.svg"
+                        target="_blank"
+                    >
+                        查看思维导图
+                    </a>
+
+                </div>
+
+            </article>
 
 
-<p>
+            <article class="content-card">
 
-这里记录我的阅读、学习、科研和人生思考。
+                <div class="card-cover video-cover">
+                    <span>▶️</span>
+                </div>
 
-</p>
+                <div class="card-body">
 
+                    <span class="card-tag">
+                        视频
+                    </span>
 
-<p>
+                    <h3>我的第一个知识视频</h3>
 
-MindMaster Mind Maps Collection
+                    <p>
+                        后续可以在这里嵌入 YouTube、哔哩哔哩或自己的视频。
+                    </p>
 
-</p>
+                    <a class="card-button secondary-button" href="#videos">
+                        前往视频中心
+                    </a>
 
-    <h3>
-如何讲好一个故事
-</h3>
+                </div>
 
-<p>
-这是我的第一张 MindMaster 思维导图。
-</p>
-
-<a 
-href="storytelling.svg.svg"
-target="_blank"
->
-查看思维导图
-</a>
+            </article>
 
 
-</div>
+            <article class="content-card">
+
+                <div class="card-cover article-cover">
+                    <span>📝</span>
+                </div>
+
+                <div class="card-body">
+
+                    <span class="card-tag">
+                        文章
+                    </span>
+
+                    <h3>我的第一篇知识笔记</h3>
+
+                    <p>
+                        用文章记录学习过程、科研思考、阅读心得和个人成长。
+                    </p>
+
+                    <a class="card-button secondary-button" href="#articles">
+                        阅读文章
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- 视频中心 -->
+    <section id="videos" class="content-section">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-label">VIDEOS</span>
+                <h2>视频中心</h2>
+            </div>
+        </div>
+
+        <div class="video-placeholder">
+
+            <div class="video-placeholder-icon">
+                ▶
+            </div>
+
+            <div>
+                <h3>这里将播放你的视频</h3>
+
+                <p>
+                    下一步可以嵌入 YouTube 视频，或者添加自己的 MP4 视频。
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 思维导图 -->
+    <section id="mindmaps" class="content-section">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-label">MIND MAPS</span>
+                <h2>思维导图</h2>
+            </div>
+        </div>
+
+        <div class="card-grid">
+
+            <article class="content-card">
+
+                <div class="card-cover mindmap-cover">
+                    <span>🧠</span>
+                </div>
+
+                <div class="card-body">
+
+                    <span class="card-tag">
+                        MindMaster
+                    </span>
+
+                    <h3>如何讲好一个故事</h3>
+
+                    <p>
+                        我的第一张 MindMaster 思维导图。
+                    </p>
+
+                    <a
+                        class="card-button"
+                        href="storytelling.svg.svg"
+                        target="_blank"
+                    >
+                        打开导图
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="content-card empty-card">
+
+                <div class="add-icon">
+                    ＋
+                </div>
+
+                <h3>添加下一张导图</h3>
+
+                <p>
+                    以后新上传的思维导图可以放在这里。
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- 文章笔记 -->
+    <section id="articles" class="content-section">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-label">ARTICLES</span>
+                <h2>文章笔记</h2>
+            </div>
+        </div>
+
+        <div class="article-list">
+
+            <article class="article-item">
+
+                <div class="article-number">
+                    01
+                </div>
+
+                <div>
+                    <h3>欢迎来到我的知识花园</h3>
+
+                    <p>
+                        这里将记录我的阅读、学习、科研和人生思考。
+                    </p>
+                </div>
+
+                <span class="article-arrow">
+                    →
+                </span>
+
+            </article>
+
+
+            <article class="article-item">
+
+                <div class="article-number">
+                    02
+                </div>
+
+                <div>
+                    <h3>未来文章位置</h3>
+
+                    <p>
+                        后续可以建立独立文章页面，并从这里进入。
+                    </p>
+                </div>
+
+                <span class="article-arrow">
+                    →
+                </span>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- 资源链接 -->
+    <section id="resources" class="content-section">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-label">RESOURCES</span>
+                <h2>资源链接</h2>
+            </div>
+        </div>
+
+        <div class="resource-grid">
+
+            <a
+                class="resource-card"
+                href="https://github.com/redroseedream"
+                target="_blank"
+            >
+                <span class="resource-icon">💻</span>
+
+                <div>
+                    <h3>我的 GitHub</h3>
+                    <p>网站文件和项目仓库</p>
+                </div>
+            </a>
+
+
+            <a
+                class="resource-card"
+                href="storytelling.svg.svg"
+                target="_blank"
+            >
+                <span class="resource-icon">🧠</span>
+
+                <div>
+                    <h3>故事思维导图</h3>
+                    <p>打开完整 SVG 导图</p>
+                </div>
+            </a>
+
+
+            <div class="resource-card">
+
+                <span class="resource-icon">＋</span>
+
+                <div>
+                    <h3>添加更多资源</h3>
+                    <p>网页、PDF、工具和学习资料</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- 关于我 -->
+    <section id="about" class="content-section">
+
+        <div class="about-card">
+
+            <div class="avatar">
+                RR
+            </div>
+
+            <div class="about-content">
+
+                <span class="section-label">
+                    ABOUT ME
+                </span>
+
+                <h2>关于我</h2>
+
+                <p>
+                    这是我的个人知识网站。我希望通过它整理知识、保存思维导图、
+                    分享视频和文章，并记录自己的长期成长。
+                </p>
+
+                <div class="about-buttons">
+
+                    <a href="mailto:你的邮箱地址">
+                        联系我
+                    </a>
+
+                    <a href="#home">
+                        返回顶部
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
 
 </main>
 
+
+<footer>
+
+    <p>
+        © 2026 Red Rose Dream · My Personal Knowledge Garden
+    </p>
+
+</footer>
 
 </body>
 
