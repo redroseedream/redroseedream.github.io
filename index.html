@@ -1,474 +1,830 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-    <title>Red Rose Dream</title>
+  <title>红玫瑰的知识花园</title>
 
-    <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: #2d2d2d;
+      background: #f6f7f9;
+      font-family:
+        "Microsoft YaHei",
+        "PingFang SC",
+        Arial,
+        sans-serif;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* 顶部导航 */
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff2b8;
+      border-bottom: 1px solid #eadc93;
+    }
+
+    .topbar-inner {
+      width: min(1280px, calc(100% - 32px));
+      min-height: 76px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .logo {
+      flex-shrink: 0;
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #4a3524;
+    }
+
+    .logo span {
+      color: #b34355;
+    }
+
+    .search-box {
+      flex: 1;
+      max-width: 720px;
+      display: flex;
+      overflow: hidden;
+      background: white;
+      border: 2px solid #4a3524;
+      border-radius: 999px;
+    }
+
+    .search-box input {
+      width: 100%;
+      min-width: 0;
+      padding: 12px 18px;
+      border: 0;
+      outline: none;
+      background: transparent;
+    }
+
+    .search-box button {
+      padding: 0 24px;
+      color: white;
+      background: #4a3524;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .top-links {
+      display: flex;
+      gap: 18px;
+      flex-shrink: 0;
+      font-size: 14px;
+    }
+
+    .top-links a:hover {
+      color: #b34355;
+    }
+
+    /* 欢迎区域 */
+
+    .welcome {
+      color: white;
+      background:
+        radial-gradient(
+          circle at 85% 25%,
+          rgba(255,255,255,0.18),
+          transparent 24%
+        ),
+        linear-gradient(135deg, #593f45, #9f5361);
+    }
+
+    .welcome-inner {
+      width: min(1280px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0;
+    }
+
+    .welcome-label {
+      margin: 0 0 12px;
+      color: #f6d8de;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    .welcome h1 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 56px);
+    }
+
+    .welcome p {
+      max-width: 700px;
+      margin: 18px 0 0;
+      color: rgba(255,255,255,0.82);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    /* 主体 */
+
+    .page {
+      width: min(1280px, calc(100% - 32px));
+      margin: 28px auto 70px;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    /* 左侧分类 */
+
+    .sidebar {
+      align-self: start;
+      position: sticky;
+      top: 102px;
+      padding: 18px;
+      background: white;
+      border: 1px solid #e7e7e7;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+
+    .sidebar h2 {
+      margin: 0 0 14px;
+      font-size: 18px;
+    }
+
+    .category-list {
+      display: grid;
+      gap: 6px;
+    }
+
+    .category-button {
+      width: 100%;
+      padding: 11px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-align: left;
+      color: #4c4c4c;
+      background: transparent;
+      border: 0;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .category-button:hover,
+    .category-button.active {
+      color: #9f3f50;
+      background: #fff0f3;
+      font-weight: 700;
+    }
+
+    /* 右侧内容 */
+
+    .content {
+      min-width: 0;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .feature {
+      min-height: 170px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      overflow: hidden;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .feature strong {
+      font-size: 23px;
+    }
+
+    .feature p {
+      margin: 8px 0 0;
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0.78;
+    }
+
+    .feature-main {
+      color: white;
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(255,255,255,0.28),
+          transparent 28%
+        ),
+        linear-gradient(135deg, #b14d5d, #713944);
+    }
+
+    .feature-book {
+      color: #4a3b28;
+      background: #f4d98b;
+    }
+
+    .feature-price {
+      color: #234a49;
+      background: #a8dfd8;
+    }
+
+    .section-heading {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 27px;
+    }
+
+    .section-heading p {
+      margin: 7px 0 0;
+      color: #7a7a7a;
+      font-size: 14px;
+    }
+
+    #resultCount {
+      flex-shrink: 0;
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* 内容卡片 */
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .content-card {
+      overflow: hidden;
+      background: white;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .content-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.1);
+    }
+
+    .card-cover {
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: white;
+      background: linear-gradient(135deg, #72444d, #bd6877);
+    }
+
+    .card-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #f7f7f7;
+    }
+
+    .card-placeholder {
+      font-size: 56px;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      color: #8a8a8a;
+      font-size: 12px;
+    }
+
+    .card-category {
+      padding: 4px 8px;
+      color: #9f3f50;
+      background: #fff0f3;
+      border-radius: 999px;
+    }
+
+    .card-body h3 {
+      margin: 16px 0 9px;
+      font-size: 20px;
+    }
+
+    .card-body p {
+      min-height: 48px;
+      margin: 0;
+      color: #6f6f6f;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .card-actions {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .primary-button,
+    .secondary-button {
+      flex: 1;
+      padding: 10px 12px;
+      text-align: center;
+      border-radius: 9px;
+    }
+
+    .primary-button {
+      color: white;
+      background: #4a3524;
+    }
+
+    .primary-button:hover {
+      background: #9f3f50;
+    }
+
+    .secondary-button {
+      color: #555;
+      background: #f0f1f3;
+    }
+
+    .empty-message {
+      display: none;
+      padding: 50px 20px;
+      color: #777;
+      text-align: center;
+      background: white;
+      border-radius: 16px;
+    }
+
+    footer {
+      padding: 34px 20px;
+      color: #888;
+      text-align: center;
+      background: white;
+      border-top: 1px solid #e7e7e7;
+    }
+
+    /* 手机适配 */
+
+    @media (max-width: 1050px) {
+      .top-links {
+        display: none;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 780px) {
+      .topbar-inner {
+        padding: 12px 0;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .logo {
+        width: 100%;
+        text-align: center;
+      }
+
+      .search-box {
+        max-width: none;
+      }
+
+      .page {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .category-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- 顶部导航栏 -->
-<nav class="top-nav">
+  <header class="topbar">
+    <div class="topbar-inner">
 
-    <a class="logo" href="#home">
-        <span class="logo-icon">🌹</span>
-        <span>Red Rose Dream</span>
-    </a>
+      <a class="logo" href="#">
+        红玫瑰的<span>知识花园</span>
+      </a>
 
-    <div class="search-box">
+      <div class="search-box">
         <input
-            type="search"
-            placeholder="搜索视频、导图、文章和资源"
-            aria-label="搜索网站内容"
+          id="searchInput"
+          type="search"
+          placeholder="搜索故事、导图、好书、文章或视频"
         >
 
-        <button type="button">
-            搜索
+        <button
+          id="searchButton"
+          type="button"
+        >
+          搜索
         </button>
-    </div>
+      </div>
 
-    <div class="top-links">
-        <a href="#recommend">推荐</a>
-        <a href="#about">关于我</a>
-    </div>
-
-</nav>
-
-
-<!-- 网站标题区域 -->
-<header id="home" class="hero">
-
-    <div class="hero-content">
-
-        <p class="hero-label">
-            MY PERSONAL KNOWLEDGE GARDEN
-        </p>
-
-        <h1>Red Rose Dream</h1>
-
-        <p class="hero-description">
-            收藏知识、整理思想、记录成长，建立属于自己的数字知识花园。
-        </p>
-
-        <a class="hero-button" href="#recommend">
-            开始浏览
-        </a>
+      <nav class="top-links">
+        <a href="#">首页</a>
+        <a href="#latest">最近更新</a>
+        <a href="#about">关于这里</a>
+      </nav>
 
     </div>
+  </header>
 
-</header>
+  <section class="welcome">
+    <div class="welcome-inner">
 
+      <p class="welcome-label">
+        PERSONAL KNOWLEDGE GARDEN
+      </p>
 
-<!-- 六个栏目入口 -->
-<section class="category-area">
+      <h1>把生活慢慢整理成自己的花园</h1>
 
-    <div class="category-grid">
-
-        <a class="category-item" href="#recommend">
-            <span class="category-icon">⭐</span>
-            <span>推荐内容</span>
-        </a>
-
-        <a class="category-item" href="#videos">
-            <span class="category-icon">▶️</span>
-            <span>视频中心</span>
-        </a>
-
-        <a class="category-item" href="#mindmaps">
-            <span class="category-icon">🧠</span>
-            <span>思维导图</span>
-        </a>
-
-        <a class="category-item" href="#articles">
-            <span class="category-icon">📝</span>
-            <span>文章笔记</span>
-        </a>
-
-        <a class="category-item" href="#resources">
-            <span class="category-icon">🔗</span>
-            <span>资源链接</span>
-        </a>
-
-        <a class="category-item" href="#about">
-            <span class="category-icon">👤</span>
-            <span>关于我</span>
-        </a>
+      <p>
+        这里存放我的思维导图、晚安故事、读书记录、
+        个人感悟、收藏内容，以及每天值得记住的小事。
+      </p>
 
     </div>
+  </section>
 
-</section>
+  <main class="page">
 
+    <aside class="sidebar">
 
-<main class="page-content">
+      <h2>内容分类</h2>
 
-    <!-- 推荐内容 -->
-    <section id="recommend" class="content-section">
+      <div class="category-list">
 
-        <div class="section-heading">
-            <div>
-                <span class="section-label">FEATURED</span>
-                <h2>推荐内容</h2>
-            </div>
+        <button
+          class="category-button active"
+          data-category="全部"
+        >
+          🏠 全部内容
+        </button>
 
-            <a href="#mindmaps">查看全部</a>
+        <button
+          class="category-button"
+          data-category="晚安故事"
+        >
+          🌙 晚安故事
+        </button>
+
+        <button
+          class="category-button"
+          data-category="思维导图"
+        >
+          🧠 思维导图
+        </button>
+
+        <button
+          class="category-button"
+          data-category="好书推荐"
+        >
+          📚 好书推荐
+        </button>
+
+        <button
+          class="category-button"
+          data-category="个人感悟"
+        >
+          🌿 个人感悟
+        </button>
+
+        <button
+          class="category-button"
+          data-category="想说的话"
+        >
+          💬 想说的话
+        </button>
+
+        <button
+          class="category-button"
+          data-category="当天物价"
+        >
+          🧾 当天物价
+        </button>
+
+        <button
+          class="category-button"
+          data-category="成长期许"
+        >
+          🌱 成长期许
+        </button>
+
+        <button
+          class="category-button"
+          data-category="窃窃私语"
+        >
+          🤫 窃窃私语
+        </button>
+
+        <button
+          class="category-button"
+          data-category="文章收藏"
+        >
+          📄 文章收藏
+        </button>
+
+        <button
+          class="category-button"
+          data-category="视频收藏"
+        >
+          🎬 视频收藏
+        </button>
+
+      </div>
+    </aside>
+
+    <section class="content">
+
+      <div class="feature-grid">
+
+        <article class="feature feature-main">
+          <strong>今晚的晚安故事</strong>
+          <p>
+            在睡前，留下一段安静、温柔和值得回味的文字。
+          </p>
+        </article>
+
+        <article class="feature feature-book">
+          <strong>好书推荐</strong>
+          <p>
+            收藏真正读过，并且愿意再次推荐的书。
+          </p>
+        </article>
+
+        <article class="feature feature-price">
+          <strong>当天物价</strong>
+          <p>
+            记录日常商品价格，观察真实生活的变化。
+          </p>
+        </article>
+
+      </div>
+
+      <div
+        id="latest"
+        class="section-heading"
+      >
+        <div>
+          <h2>最近更新</h2>
+          <p>
+            将每天值得保存的内容，逐渐积累在这里。
+          </p>
         </div>
 
-        <div class="card-grid">
-
-            <article class="content-card featured-card">
-
-                <div class="card-cover mindmap-cover">
-                    <span>🧠</span>
-                </div>
-
-                <div class="card-body">
-
-                    <span class="card-tag">
-                        思维导图
-                    </span>
-
-                    <h3>如何讲好一个故事</h3>
-
-                    <p>
-                        从故事结构、人物塑造和表达技巧等方面，整理讲故事的核心方法。
-                    </p>
-
-                    <a
-                        class="card-button"
-                        href="storytelling.svg.svg"
-                        target="_blank"
-                    >
-                        查看思维导图
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="content-card">
-
-                <div class="card-cover video-cover">
-                    <span>▶️</span>
-                </div>
-
-                <div class="card-body">
-
-                    <span class="card-tag">
-                        视频
-                    </span>
-
-                    <h3>我的第一个知识视频</h3>
-
-                    <p>
-                        后续可以在这里嵌入 YouTube、哔哩哔哩或自己的视频。
-                    </p>
-
-                    <a class="card-button secondary-button" href="#videos">
-                        前往视频中心
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="content-card">
-
-                <div class="card-cover article-cover">
-                    <span>📝</span>
-                </div>
-
-                <div class="card-body">
-
-                    <span class="card-tag">
-                        文章
-                    </span>
-
-                    <h3>我的第一篇知识笔记</h3>
-
-                    <p>
-                        用文章记录学习过程、科研思考、阅读心得和个人成长。
-                    </p>
-
-                    <a class="card-button secondary-button" href="#articles">
-                        阅读文章
-                    </a>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- 视频中心 -->
-    <section id="videos" class="content-section">
-
-        <div class="section-heading">
-            <div>
-                <span class="section-label">VIDEOS</span>
-                <h2>视频中心</h2>
-            </div>
-        </div>
-
-        <div class="video-placeholder">
-
-            <div class="video-placeholder-icon">
-                ▶
-            </div>
-
-            <div>
-                <h3>这里将播放你的视频</h3>
-
-                <p>
-                    下一步可以嵌入 YouTube 视频，或者添加自己的 MP4 视频。
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- 思维导图 -->
-    <section id="mindmaps" class="content-section">
-
-        <div class="section-heading">
-            <div>
-                <span class="section-label">MIND MAPS</span>
-                <h2>思维导图</h2>
-            </div>
-        </div>
-
-        <div class="card-grid">
-
-            <article class="content-card">
-
-                <div class="card-cover mindmap-cover">
-                    <span>🧠</span>
-                </div>
-
-                <div class="card-body">
-
-                    <span class="card-tag">
-                        MindMaster
-                    </span>
-
-                    <h3>如何讲好一个故事</h3>
-
-                    <p>
-                        我的第一张 MindMaster 思维导图。
-                    </p>
-
-                    <a
-                        class="card-button"
-                        href="storytelling.svg.svg"
-                        target="_blank"
-                    >
-                        打开导图
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="content-card empty-card">
-
-                <div class="add-icon">
-                    ＋
-                </div>
-
-                <h3>添加下一张导图</h3>
-
-                <p>
-                    以后新上传的思维导图可以放在这里。
-                </p>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- 文章笔记 -->
-    <section id="articles" class="content-section">
-
-        <div class="section-heading">
-            <div>
-                <span class="section-label">ARTICLES</span>
-                <h2>文章笔记</h2>
-            </div>
-        </div>
-
-        <div class="article-list">
-
-            <article class="article-item">
-
-                <div class="article-number">
-                    01
-                </div>
-
-                <div>
-                    <h3>欢迎来到我的知识花园</h3>
-
-                    <p>
-                        这里将记录我的阅读、学习、科研和人生思考。
-                    </p>
-                </div>
-
-                <span class="article-arrow">
-                    →
-                </span>
-
-            </article>
-
-
-            <article class="article-item">
-
-                <div class="article-number">
-                    02
-                </div>
-
-                <div>
-                    <h3>未来文章位置</h3>
-
-                    <p>
-                        后续可以建立独立文章页面，并从这里进入。
-                    </p>
-                </div>
-
-                <span class="article-arrow">
-                    →
-                </span>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- 资源链接 -->
-    <section id="resources" class="content-section">
-
-        <div class="section-heading">
-            <div>
-                <span class="section-label">RESOURCES</span>
-                <h2>资源链接</h2>
-            </div>
-        </div>
-
-        <div class="resource-grid">
-
-            <a
-                class="resource-card"
-                href="https://github.com/redroseedream"
-                target="_blank"
+        <span id="resultCount">
+          1 项内容
+        </span>
+      </div>
+
+      <div
+        id="cardGrid"
+        class="card-grid"
+      >
+
+        <!-- 第一张思维导图 -->
+
+        <article
+          class="content-card"
+          data-category="思维导图"
+          data-title="如何讲好一个故事"
+          data-description="故事结构、表达方法和叙事技巧"
+        >
+
+          <div class="card-cover">
+
+            <img
+              src="storytelling.svg"
+              alt="如何讲好一个故事思维导图"
             >
-                <span class="resource-icon">💻</span>
 
-                <div>
-                    <h3>我的 GitHub</h3>
-                    <p>网站文件和项目仓库</p>
-                </div>
-            </a>
+          </div>
 
+          <div class="card-body">
 
-            <a
-                class="resource-card"
-                href="storytelling.svg.svg"
+            <div class="card-meta">
+
+              <span class="card-category">
+                思维导图
+              </span>
+
+              <time>
+                2026-07-18
+              </time>
+
+            </div>
+
+            <h3>如何讲好一个故事</h3>
+
+            <p>
+              整理故事结构、叙事节奏、人物塑造和表达方法。
+            </p>
+
+            <div class="card-actions">
+
+              <a
+                class="primary-button"
+                href="storytelling.svg"
                 target="_blank"
-            >
-                <span class="resource-icon">🧠</span>
+              >
+                查看导图
+              </a>
 
-                <div>
-                    <h3>故事思维导图</h3>
-                    <p>打开完整 SVG 导图</p>
-                </div>
-            </a>
-
-
-            <div class="resource-card">
-
-                <span class="resource-icon">＋</span>
-
-                <div>
-                    <h3>添加更多资源</h3>
-                    <p>网页、PDF、工具和学习资料</p>
-                </div>
+              <a
+                class="secondary-button"
+                href="#"
+              >
+                内容说明
+              </a>
 
             </div>
+          </div>
+        </article>
 
-        </div>
+      </div>
+
+      <div
+        id="emptyMessage"
+        class="empty-message"
+      >
+        没有找到符合条件的内容。
+      </div>
 
     </section>
+  </main>
 
+  <footer id="about">
+    © 2026 红玫瑰的知识花园
+    · 记录、整理与长期积累
+  </footer>
 
-    <!-- 关于我 -->
-    <section id="about" class="content-section">
+  <script>
+    const searchInput =
+      document.getElementById("searchInput");
 
-        <div class="about-card">
+    const searchButton =
+      document.getElementById("searchButton");
 
-            <div class="avatar">
-                RR
-            </div>
+    const categoryButtons =
+      document.querySelectorAll(".category-button");
 
-            <div class="about-content">
+    const cards =
+      document.querySelectorAll(".content-card");
 
-                <span class="section-label">
-                    ABOUT ME
-                </span>
+    const resultCount =
+      document.getElementById("resultCount");
 
-                <h2>关于我</h2>
+    const emptyMessage =
+      document.getElementById("emptyMessage");
 
-                <p>
-                    这是我的个人知识网站。我希望通过它整理知识、保存思维导图、
-                    分享视频和文章，并记录自己的长期成长。
-                </p>
+    let selectedCategory = "全部";
 
-                <div class="about-buttons">
+    function filterCards() {
+      const keyword =
+        searchInput.value.trim().toLowerCase();
 
-                    <a href="mailto:你的邮箱地址">
-                        联系我
-                    </a>
+      let visibleCount = 0;
 
-                    <a href="#home">
-                        返回顶部
-                    </a>
+      cards.forEach((card) => {
+        const category =
+          card.dataset.category || "";
 
-                </div>
+        const searchableText = [
+          card.dataset.title || "",
+          card.dataset.description || "",
+          category
+        ]
+          .join(" ")
+          .toLowerCase();
 
-            </div>
+        const matchesCategory =
+          selectedCategory === "全部" ||
+          category === selectedCategory;
 
-        </div>
+        const matchesSearch =
+          searchableText.includes(keyword);
 
-    </section>
+        const shouldShow =
+          matchesCategory && matchesSearch;
 
-</main>
+        card.style.display =
+          shouldShow ? "" : "none";
 
+        if (shouldShow) {
+          visibleCount++;
+        }
+      });
 
-<footer>
+      resultCount.textContent =
+        visibleCount + " 项内容";
 
-    <p>
-        © 2026 Red Rose Dream · My Personal Knowledge Garden
-    </p>
+      emptyMessage.style.display =
+        visibleCount === 0 ? "block" : "none";
+    }
 
-</footer>
+    categoryButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+
+        categoryButtons.forEach((item) => {
+          item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        selectedCategory =
+          button.dataset.category;
+
+        filterCards();
+      });
+    });
+
+    searchButton.addEventListener(
+      "click",
+      filterCards
+    );
+
+    searchInput.addEventListener(
+      "input",
+      filterCards
+    );
+
+    searchInput.addEventListener(
+      "keydown",
+      (event) => {
+        if (event.key === "Enter") {
+          filterCards();
+        }
+      }
+    );
+  </script>
 
 </body>
-
 </html>
