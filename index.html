@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>红玫瑰的知识花园</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+🌹 红玫瑰的<span>知识花园</span>
+</div>
+
+</header>
+
+
+
+<section class="hero">
+
+<h1>
+把生活慢慢整理成自己的花园
+</h1>
+
+<p>
+这里收藏故事、图片、音乐、思维与人生记录。
+</p>
+
+</section>
+
+
+
+
+<div class="container">
+
+
+<aside class="sidebar">
+
+
+<h2>
+🌱 花园目录
+</h2>
+
+
+
+<button onclick="showPage('home')">
+🏡 首页
+</button>
+
+
+<button onclick="showPage('story')">
+🌙 睡前故事
+</button>
+
+
+<button onclick="showPage('photo')">
+🖼 图片花园
+</button>
+
+
+<button onclick="showPage('mind')">
+🧠 思维导图
+</button>
+
+
+<button onclick="showPage('music')">
+🎵 喜爱音乐
+</button>
+
+
+<button onclick="showPage('message')">
+💌 读者留言
+</button>
+
+
+
+</aside>
+
+
+
+
+
+<main id="content">
+
+
+
+<div class="card">
+
+
+<h2>
+🌹 关于我的花园
+</h2>
+
+
+<p>
+记录故事、阅读、思考和成长，
+让时间留下痕迹。
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+🌳 我的知识树
+</h2>
+
+
+<p>
+
+🌙 故事
+
+&nbsp;&nbsp;
+
+🖼 图片
+
+&nbsp;&nbsp;
+
+🧠 思维
+
+&nbsp;&nbsp;
+
+🎵 音乐
+
+</p>
+
+
+</div>
+
+
+
+
+</main>
+
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+function showPage(type){
+
+
+let content=document.getElementById("content");
+
+
+
+let pages={
+
+
+
+home:`
+
+<div class="card">
+
+<h2>
+🌹 我的花园
+</h2>
+
+<p>
+欢迎来到红玫瑰的知识花园。
+</p>
+
+</div>
+
+`,
+
+
+
+
+story:`
+
+<div class="card">
+
+<h2>
+🌙 睡前故事
+</h2>
+
+<h3>
+我的第一个故事
+</h3>
+
+
+<audio controls>
+
+<source src="assets/audio/story001.m4a">
+
+</audio>
+
+
+</div>
+
+`,
+
+
+
+
+
+photo:`
+
+<div class="card">
+
+<h2>
+🖼 图片花园
+</h2>
+
+
+<p>
+未来这里展示我的照片和收藏。
+</p>
+
+
+<img class="photo"
+src="assets/images/photo001.jpg">
+
+
+</div>
+
+`,
+
+
+
+
+
+
+mind:`
+
+<div class="card">
+
+<h2>
+🧠 思维导图
+</h2>
+
+
+<p>
+未来这里展示我的知识地图。
+</p>
+
+
+<img class="photo"
+src="assets/mindmap/map001.svg">
+
+
+</div>
+
+
+
+`,
+
+
+
+
+music:`
+
+<div class="card">
+
+<h2>
+🎵 喜爱音乐
+</h2>
+
+
+<p>
+记录喜欢的音乐和故事。
+</p>
+
+
+<audio controls>
+
+<source src="assets/audio/music001.mp3">
+
+</audio>
+
+
+</div>
+
+
+`,
+
+
+
+
+
+message:`
+
+<div class="card">
+
+
+<h2>
+💌 读者留言
+</h2>
+
+
+<textarea
+placeholder="留下你的想法..."
+></textarea>
+
+
+
+</div>
+
+
+`
+
+
+
+};
+
+
+
+content.innerHTML=pages[type];
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
