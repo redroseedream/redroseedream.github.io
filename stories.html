@@ -1,219 +1,207 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>睡前故事 | 红玫瑰的知识花园</title>
-
+<title>红玫瑰的知识花园 - 睡前故事</title>
 
 <style>
-
+*{box-sizing:border-box}
 body{
-
 margin:0;
-
 background:#f5f1e8;
-
-font-family:
-"Microsoft YaHei",
-sans-serif;
-
 color:#333;
-
+font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif;
+line-height:1.8;
 }
-
+a{text-decoration:none;color:inherit}
 
 header{
-
-background:
-linear-gradient(
-135deg,
-#6b4f3a,
-#9f3f50
-);
-
+background:linear-gradient(135deg,#6b4f3a,#9f3f50);
 color:white;
-
-padding:60px 20px;
-
-text-align:center;
-
+padding:45px 20px;
 }
 
+.header-inner{
+max-width:1100px;
+margin:auto;
+}
 
 h1{
-
-font-size:45px;
-
+font-size:42px;
+margin:0 0 10px;
 }
-
 
 .container{
-
-max-width:1000px;
-
+max-width:1100px;
 margin:40px auto;
-
-padding:20px;
-
+padding:0 20px;
 }
-
-
-.story-card{
-
-background:white;
-
-padding:30px;
-
-border-radius:25px;
-
-margin-bottom:25px;
-
-box-shadow:
-0 10px 30px rgba(0,0,0,.08);
-
-}
-
-
-.story-card h2{
-
-color:#9f3f50;
-
-}
-
-
-.tag{
-
-display:inline-block;
-
-background:#fff0f3;
-
-color:#9f3f50;
-
-padding:6px 12px;
-
-border-radius:20px;
-
-font-size:13px;
-
-}
-
-
 
 .back{
-
 display:inline-block;
-
-margin-top:30px;
-
 background:#6b4f3a;
-
 color:white;
-
-padding:12px 20px;
-
-border-radius:10px;
-
+padding:10px 18px;
+border-radius:20px;
+margin-bottom:30px;
 }
 
+.story-card{
+background:white;
+border-radius:25px;
+padding:35px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
 
+.tag{
+display:inline-block;
+background:#fff0f3;
+color:#9f3f50;
+padding:5px 15px;
+border-radius:20px;
+margin-right:8px;
+font-size:14px;
+}
+
+.story-content{
+margin-top:30px;
+font-size:18px;
+}
+
+.quote{
+margin:30px 0;
+padding:25px;
+background:#f8f1e7;
+border-left:5px solid #9f3f50;
+border-radius:10px;
+}
+
+.more{
+margin-top:40px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.item{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 8px 20px rgba(0,0,0,.06);
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#777;
+}
+
+@media(max-width:700px){
+h1{font-size:32px}
+.more{grid-template-columns:1fr}
+}
 </style>
 
 </head>
 
-
 <body>
 
-
 <header>
-
-<h1>
-🌙 睡前故事
-</h1>
-
-<p>
-在夜晚留下温柔的文字，
-记录生命中的小故事。
-</p>
-
+<div class="header-inner">
+<h1>🌙 睡前故事花园</h1>
+<p>在夜晚记录温柔的故事，也记录自己的成长。</p>
+</div>
 </header>
-
 
 
 <div class="container">
 
-
-<div class="story-card">
-
-
-<h2>
-如何讲好一个故事
-</h2>
-
-
-<p>
-一个好的故事，
-不仅是文字，
-更是一种理解世界的方式。
-</p>
-
-
-<span class="tag">
-#写作
-</span>
-
-<span class="tag">
-#表达
-</span>
-
-
-
-</div>
-
-
-
-
-
-<div class="story-card">
-
-
-<h2>
-未来写给自己的信
-</h2>
-
-
-<p>
-
-记录此刻的想法，
-留给未来的自己。
-
-</p>
-
-
-<span class="tag">
-#成长
-</span>
-
-
-</div>
-
-
-
-
 <a class="back" href="index.html">
-
-返回知识花园
-
+← 返回知识花园首页
 </a>
 
 
+<div class="story-card">
+
+<h2>如何讲好一个故事</h2>
+
+<p>
+一个好的故事，不只是文字的组合，
+而是人与世界建立联系的一种方式。
+</p>
+
+<div>
+<span class="tag">#写作</span>
+<span class="tag">#表达</span>
+<span class="tag">#成长</span>
 </div>
 
 
-</body>
+<div class="story-content">
 
+<p>
+每个人的一生，其实都是一个故事。
+</p>
+
+<p>
+故事需要人物，需要冲突，需要变化。
+一个普通的经历，通过正确的表达，
+也可以成为值得保存的记忆。
+</p>
+
+<p>
+睡前记录一段故事，
+其实是在和未来的自己对话。
+</p>
+
+
+<div class="quote">
+🌱 今日启发：
+<br>
+“把经历整理成故事，
+就是把时间变成自己的财富。”
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<h2>更多故事</h2>
+
+<div class="more">
+
+<div class="item">
+🌙 夜晚故事
+<br>
+等待未来添加新的故事。
+</div>
+
+<div class="item">
+📖 人生故事
+<br>
+记录值得回忆的人和事。
+</div>
+
+<div class="item">
+✨ 哲思故事
+<br>
+收藏关于成长与人生的思考。
+</div>
+
+</div>
+
+
+</div>
+
+
+<footer>
+© 2026 红玫瑰的知识花园
+</footer>
+
+
+</body>
 </html>
