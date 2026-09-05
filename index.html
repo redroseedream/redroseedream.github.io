@@ -41,6 +41,7 @@ audio{width:100%}
 <aside class="sidebar">
 <h2>🌱 花园目录</h2>
 <div class="menu">
+<button onclick="showHome()">🏡 首页</button>
 <button onclick="showPage('story')">🌙 睡前故事</button>
 <button onclick="showPage('book')">📚 阅读收藏</button>
 <button onclick="showPage('thought')">💭 思想森林</button>
@@ -75,7 +76,51 @@ audio{width:100%}
 </section>
 </main>
 
-<script>
+<script>function showHome(){
+
+document.getElementById("content").innerHTML=`
+
+<div class="box profile">
+
+<img src="avatar.jpg">
+
+<div>
+<h2>🌹 关于我的花园</h2>
+<p>
+记录故事、阅读、思考和成长，让时间留下痕迹。
+</p>
+</div>
+
+</div>
+
+
+<div class="box">
+
+<h2>🌳 我的知识树</h2>
+
+<p>
+📚 阅读　💭 思考　✍️ 创作　🛠 技术
+</p>
+
+</div>
+
+
+<div class="box">
+
+<h2>🌙 今晚故事</h2>
+
+<audio controls>
+
+<source src="story001.m4a">
+
+</audio>
+
+</div>
+
+`;
+
+}
+  
 function showPage(type){
 let c=document.getElementById("content");
 let html={
