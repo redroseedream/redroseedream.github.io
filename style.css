@@ -1,4 +1,10 @@
-/* 红玫瑰的知识花园 V2.0 样式 */
+/* ===============================
+   红玫瑰的知识花园
+   style.css
+   =============================== */
+
+
+/* 基础 */
 
 *{
 box-sizing:border-box;
@@ -27,7 +33,17 @@ sans-serif;
 }
 
 
-/* 顶部 */
+img{
+
+max-width:100%;
+
+}
+
+
+/* ===============================
+   顶部导航
+   =============================== */
+
 
 .topbar{
 
@@ -42,6 +58,7 @@ background:#fff8ed;
 border-bottom:1px solid #eadbc8;
 
 }
+
 
 
 .topbar-inner{
@@ -70,6 +87,8 @@ font-weight:800;
 
 color:#6b4f3a;
 
+cursor:pointer;
+
 white-space:nowrap;
 
 }
@@ -95,19 +114,22 @@ border-radius:30px;
 
 border:2px solid #6b4f3a;
 
-font-size:15px;
-
 outline:none;
+
+font-size:15px;
 
 }
 
 
 
 
-/* 欢迎区域 */
+/* ===============================
+   首页欢迎区域
+   =============================== */
 
 
 .hero{
+
 
 background:
 
@@ -116,6 +138,7 @@ circle at 80% 20%,
 rgba(255,255,255,.2),
 transparent 30%
 ),
+
 
 linear-gradient(
 135deg,
@@ -137,6 +160,18 @@ padding:70px 30px;
 max-width:1200px;
 
 margin:auto;
+
+}
+
+
+
+.english{
+
+letter-spacing:3px;
+
+font-size:14px;
+
+opacity:.8;
 
 }
 
@@ -167,7 +202,10 @@ max-width:700px;
 
 
 
-/* 主布局 */
+
+/* ===============================
+   主体布局
+   =============================== */
 
 
 .container{
@@ -188,16 +226,19 @@ gap:30px;
 
 
 
-/* 左侧 */
+/* ===============================
+   左侧菜单
+   =============================== */
 
 
 .sidebar{
+
 
 background:white;
 
 padding:25px;
 
-border-radius:24px;
+border-radius:25px;
 
 height:max-content;
 
@@ -205,9 +246,11 @@ position:sticky;
 
 top:100px;
 
+
 box-shadow:
 
 0 10px 30px rgba(0,0,0,.08);
+
 
 }
 
@@ -223,8 +266,8 @@ color:#6b4f3a;
 
 
 
-
 .menu button{
+
 
 width:100%;
 
@@ -232,26 +275,32 @@ padding:14px 15px;
 
 margin:7px 0;
 
-border:0;
+
+border:none;
 
 background:white;
 
-border-radius:14px;
+
+border-radius:15px;
+
 
 cursor:pointer;
 
+
 text-align:left;
+
 
 font-size:15px;
 
+
 transition:.25s;
+
 
 }
 
 
 
 .menu button:hover,
-
 .menu button.active{
 
 
@@ -268,16 +317,24 @@ transform:translateX(5px);
 
 
 
-/* 内容卡片 */
+
+
+/* ===============================
+   内容卡片
+   =============================== */
 
 
 .box{
 
+
 background:white;
+
+
+border-radius:25px;
+
 
 padding:30px;
 
-border-radius:24px;
 
 margin-bottom:25px;
 
@@ -289,24 +346,29 @@ box-shadow:
 
 transition:.3s;
 
+
 }
 
 
 
 .box:hover{
 
+
 transform:translateY(-3px);
+
 
 }
 
 
 
-
 .box h2{
+
 
 margin-top:0;
 
+
 color:#6b4f3a;
+
 
 }
 
@@ -314,25 +376,35 @@ color:#6b4f3a;
 
 .box p{
 
+
 line-height:1.8;
 
+
 color:#666;
+
 
 }
 
 
 
 
-/* 头像 */
+
+/* ===============================
+   头像
+   =============================== */
 
 
 .profile{
 
+
 display:flex;
+
 
 align-items:center;
 
+
 gap:25px;
+
 
 }
 
@@ -340,21 +412,31 @@ gap:25px;
 
 .avatar{
 
+
 width:140px;
+
 
 height:140px;
 
+
 border-radius:50%;
+
 
 object-fit:cover;
 
+
 border:5px solid #fff0f3;
+
 
 }
 
 
 
-/* 知识树 */
+
+
+/* ===============================
+   知识树
+   =============================== */
 
 
 .tree span{
@@ -362,15 +444,21 @@ border:5px solid #fff0f3;
 
 display:inline-block;
 
-padding:12px 20px;
+
+padding:12px 22px;
+
 
 margin:8px;
 
+
 background:#edf5ee;
+
 
 color:#355c4d;
 
+
 border-radius:30px;
+
 
 font-weight:bold;
 
@@ -379,7 +467,10 @@ font-weight:bold;
 
 
 
-/* 图片花园 */
+
+/* ===============================
+   图片花园
+   =============================== */
 
 
 .gallery img{
@@ -387,13 +478,18 @@ font-weight:bold;
 
 width:220px;
 
+
 height:220px;
+
 
 object-fit:cover;
 
+
 border-radius:20px;
 
+
 margin:10px;
+
 
 box-shadow:
 
@@ -409,28 +505,66 @@ transition:.3s;
 
 .gallery img:hover{
 
+
 transform:scale(1.05);
+
 
 }
 
 
 
 
-/* 音频 */
+
+/* ===============================
+   思维导图
+   =============================== */
+
+
+.mindmap-img{
+
+
+width:80%;
+
+
+max-width:700px;
+
+
+border-radius:20px;
+
+
+box-shadow:
+
+0 10px 30px rgba(0,0,0,.1);
+
+
+}
+
+
+
+
+/* ===============================
+   音频
+   =============================== */
 
 
 audio{
 
+
 width:100%;
 
+
 margin-top:20px;
+
 
 }
 
 
 
 
-/* 留言 */
+
+/* ===============================
+   留言
+   =============================== */
 
 
 textarea{
@@ -438,15 +572,21 @@ textarea{
 
 width:100%;
 
+
 height:160px;
+
 
 padding:15px;
 
+
 border-radius:15px;
+
 
 border:1px solid #ddd;
 
+
 font-size:15px;
+
 
 resize:none;
 
@@ -455,7 +595,11 @@ resize:none;
 
 
 
-/* 页脚 */
+
+
+/* ===============================
+   页脚
+   =============================== */
 
 
 footer{
@@ -463,24 +607,33 @@ footer{
 
 text-align:center;
 
+
 padding:40px;
 
+
 color:#888;
+
 
 }
 
 
 
 
-/* 手机 */
+
+/* ===============================
+   手机适配
+   =============================== */
 
 
 @media(max-width:900px){
 
 
+
 .container{
 
+
 grid-template-columns:1fr;
+
 
 }
 
@@ -488,7 +641,9 @@ grid-template-columns:1fr;
 
 .sidebar{
 
+
 position:static;
+
 
 }
 
@@ -496,7 +651,9 @@ position:static;
 
 .hero h1{
 
+
 font-size:36px;
+
 
 }
 
@@ -504,31 +661,15 @@ font-size:36px;
 
 .profile{
 
+
 flex-direction:column;
+
 
 text-align:center;
 
-}
-
-
-
-}
-.mindmap-img{
-
-width:80%;
-
-max-width:700px;
-
-border-radius:20px;
-
-box-shadow:
-0 10px 30px rgba(0,0,0,.1);
 
 }
 
 
-img{
-
-max-width:100%;
 
 }
