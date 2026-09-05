@@ -1,16 +1,356 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>红玫瑰的知识花园</title>
 
+<style>
 
-<link rel="stylesheet" href="style.css">
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+background:#f5f1e8;
+color:#333;
+font-family:
+"Microsoft YaHei",
+"PingFang SC",
+Arial,
+sans-serif;
+}
+
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+
+/* 顶部 */
+
+.topbar{
+
+position:sticky;
+top:0;
+
+z-index:100;
+
+background:#f8f1e7;
+
+border-bottom:1px solid #e5d8c8;
+
+}
+
+
+.topbar-inner{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:15px 25px;
+
+display:flex;
+
+align-items:center;
+
+gap:25px;
+
+}
+
+
+.logo{
+
+font-size:26px;
+
+font-weight:bold;
+
+color:#6b4f3a;
+
+}
+
+
+.logo span{
+
+color:#9f3f50;
+
+}
+
+
+.search{
+
+flex:1;
+
+padding:12px 20px;
+
+border-radius:30px;
+
+border:1px solid #ddd;
+
+}
+
+
+/* 首页大标题 */
+
+
+.hero{
+
+background:
+linear-gradient(
+135deg,
+#6b4f3a,
+#9f3f50
+);
+
+color:white;
+
+padding:70px 30px;
+
+}
+
+
+.hero-inner{
+
+max-width:1200px;
+
+margin:auto;
+
+}
+
+
+.hero h1{
+
+font-size:52px;
+
+margin:20px 0;
+
+}
+
+
+
+/* 主体 */
+
+
+.container{
+
+max-width:1200px;
+
+margin:40px auto;
+
+padding:0 20px;
+
+display:grid;
+
+grid-template-columns:230px 1fr;
+
+gap:35px;
+
+}
+
+
+
+/* 左侧菜单 */
+
+
+.sidebar{
+
+background:white;
+
+border-radius:25px;
+
+padding:25px;
+
+height:max-content;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+.menu button{
+
+width:100%;
+
+border:none;
+
+background:white;
+
+padding:14px;
+
+margin:6px 0;
+
+border-radius:15px;
+
+cursor:pointer;
+
+text-align:left;
+
+font-size:15px;
+
+}
+
+
+.menu button:hover,
+.menu button.active{
+
+background:#fff0f3;
+
+color:#9f3f50;
+
+font-weight:bold;
+
+}
+
+
+
+/* 内容 */
+
+
+.box{
+
+background:white;
+
+border-radius:25px;
+
+padding:30px;
+
+margin-bottom:25px;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.06);
+
+}
+
+
+.profile{
+
+display:flex;
+
+align-items:center;
+
+gap:25px;
+
+}
+
+
+.profile img{
+
+width:130px;
+
+height:130px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+}
+
+
+
+/* 知识树 */
+
+
+.tree span{
+
+display:inline-block;
+
+background:#edf5ee;
+
+color:#355c4d;
+
+padding:12px 22px;
+
+margin:8px;
+
+border-radius:30px;
+
+}
+
+
+
+/* 图片 */
+
+
+.gallery img{
+
+width:200px;
+
+height:200px;
+
+object-fit:cover;
+
+border-radius:20px;
+
+margin:10px;
+
+}
+
+
+
+/* 音频 */
+
+
+audio{
+
+width:100%;
+
+}
+
+
+
+/* 留言 */
+
+
+textarea{
+
+width:100%;
+
+height:150px;
+
+border-radius:15px;
+
+padding:15px;
+
+border:1px solid #ddd;
+
+}
+
+
+
+/* 手机适配 */
+
+
+@media(max-width:900px){
+
+.container{
+
+grid-template-columns:1fr;
+
+}
+
+
+.hero h1{
+
+font-size:35px;
+
+}
+
+
+.profile{
+
+flex-direction:column;
+
+}
+
+}
+
+
+</style>
 
 
 </head>
@@ -19,10 +359,22 @@
 <body>
 
 
-<header>
+<header class="topbar">
+
+<div class="topbar-inner">
+
 
 <div class="logo">
-🌹 红玫瑰的<span>知识花园</span>
+
+红玫瑰的<span>知识花园</span>
+
+</div>
+
+
+<input class="search"
+placeholder="搜索故事、图片、音乐、思考">
+
+
 </div>
 
 </header>
@@ -31,20 +383,32 @@
 
 <section class="hero">
 
+<div class="hero-inner">
+
+
+<p>
+PERSONAL KNOWLEDGE GARDEN
+</p>
+
+
 <h1>
 把生活慢慢整理成自己的花园
 </h1>
 
+
 <p>
-这里收藏故事、图片、音乐、思维与人生记录。
+这里收藏故事、图片、音乐、思考与人生记录。
 </p>
+
+
+</div>
 
 </section>
 
 
 
 
-<div class="container">
+<main class="container">
 
 
 <aside class="sidebar">
@@ -55,50 +419,72 @@
 </h2>
 
 
+<div class="menu">
 
-<button onclick="showPage('home')">
-🏡 首页
+
+<button class="active"
+onclick="showHome()">
+
+🏡 我的花园
+
 </button>
 
 
+
 <button onclick="showPage('story')">
+
 🌙 睡前故事
+
 </button>
 
 
 <button onclick="showPage('photo')">
+
 🖼 图片花园
+
 </button>
 
 
 <button onclick="showPage('mind')">
+
 🧠 思维导图
+
 </button>
 
 
 <button onclick="showPage('music')">
+
 🎵 喜爱音乐
+
 </button>
 
 
 <button onclick="showPage('message')">
+
 💌 读者留言
+
 </button>
 
+
+
+</div>
 
 
 </aside>
 
 
 
-
-
-<main id="content">
+<section id="content">
 
 
 
-<div class="card">
+<div class="box profile">
 
+
+<img src="assets/images/avatar.jpg">
+
+
+<div>
 
 <h2>
 🌹 关于我的花园
@@ -106,9 +492,11 @@
 
 
 <p>
-记录故事、阅读、思考和成长，
-让时间留下痕迹。
+记录故事、阅读、思考和成长，让时间留下痕迹。
 </p>
+
+
+</div>
 
 
 </div>
@@ -117,7 +505,7 @@
 
 
 
-<div class="card">
+<div class="box tree">
 
 
 <h2>
@@ -125,22 +513,32 @@
 </h2>
 
 
+<span>🌙 故事</span>
+
+<span>🖼 图片</span>
+
+<span>🧠 思维</span>
+
+<span>🎵 音乐</span>
+
+
+</div>
+
+
+
+
+
+<div class="box">
+
+
+<h2>
+🌱 花园说明
+</h2>
+
+
 <p>
-
-🌙 故事
-
-&nbsp;&nbsp;
-
-🖼 图片
-
-&nbsp;&nbsp;
-
-🧠 思维
-
-&nbsp;&nbsp;
-
-🎵 音乐
-
+这里是属于自己的数字花园，
+慢慢收藏人生中的美好。
 </p>
 
 
@@ -148,19 +546,63 @@
 
 
 
+</section>
+
+
 
 </main>
-
-
-</div>
-
-
-
 
 
 
 <script>
 
+
+function showHome(){
+
+
+document.getElementById("content").innerHTML=`
+
+<div class="box profile">
+
+<img src="assets/images/avatar.jpg">
+
+<div>
+
+<h2>
+🌹 关于我的花园
+</h2>
+
+<p>
+记录故事、图片、音乐、思考和人生。
+</p>
+
+</div>
+
+</div>
+
+
+<div class="box tree">
+
+<h2>
+🌳 我的知识树
+</h2>
+
+
+<span>🌙 故事</span>
+
+<span>🖼 图片</span>
+
+<span>🧠 思维</span>
+
+<span>🎵 音乐</span>
+
+
+</div>
+
+
+`;
+
+}
 
 function showPage(type){
 
@@ -173,46 +615,35 @@ let pages={
 
 
 
-home:`
-
-<div class="card">
-
-<h2>
-🌹 我的花园
-</h2>
-
-<p>
-欢迎来到红玫瑰的知识花园。
-</p>
-
-</div>
-
-`,
-
-
-
-
 story:`
 
-<div class="card">
+<div class="box">
 
 <h2>
 🌙 睡前故事
 </h2>
 
+
 <h3>
-我的第一个故事
+我的第一个睡前故事
 </h3>
+
+
+<p>
+在这里记录温柔的故事，陪伴每一个夜晚。
+</p>
 
 
 <audio controls>
 
-<source src="assets/audio/story001.m4a">
+<source src="assets/audio/story001.m4a"
+type="audio/mp4">
 
 </audio>
 
 
 </div>
+
 
 `,
 
@@ -222,7 +653,7 @@ story:`
 
 photo:`
 
-<div class="card">
+<div class="box gallery">
 
 <h2>
 🖼 图片花园
@@ -230,18 +661,18 @@ photo:`
 
 
 <p>
-未来这里展示我的照片和收藏。
+这里保存生活中的照片、美好瞬间和收藏图片。
 </p>
 
 
-<img class="photo"
-src="assets/images/photo001.jpg">
+<img src="assets/images/photo001.jpg">
 
 
 </div>
 
-`,
 
+
+`,
 
 
 
@@ -249,7 +680,7 @@ src="assets/images/photo001.jpg">
 
 mind:`
 
-<div class="card">
+<div class="box">
 
 <h2>
 🧠 思维导图
@@ -257,12 +688,14 @@ mind:`
 
 
 <p>
-未来这里展示我的知识地图。
+整理阅读、学习和人生规划。
 </p>
 
 
-<img class="photo"
-src="assets/mindmap/map001.svg">
+<img 
+src="assets/mindmap/map001.svg"
+style="width:80%;max-width:600px;"
+>
 
 
 </div>
@@ -274,9 +707,10 @@ src="assets/mindmap/map001.svg">
 
 
 
+
 music:`
 
-<div class="card">
+<div class="box">
 
 <h2>
 🎵 喜爱音乐
@@ -284,7 +718,7 @@ music:`
 
 
 <p>
-记录喜欢的音乐和故事。
+收藏喜欢的音乐，让声音留下记忆。
 </p>
 
 
@@ -298,7 +732,9 @@ music:`
 </div>
 
 
+
 `,
+
 
 
 
@@ -306,18 +742,21 @@ music:`
 
 message:`
 
-<div class="card">
-
+<div class="box">
 
 <h2>
 💌 读者留言
 </h2>
 
 
-<textarea
-placeholder="留下你的想法..."
-></textarea>
+<p>
+欢迎留下你的想法。
+</p>
 
+
+<textarea
+placeholder="写下你的留言..."
+></textarea>
 
 
 </div>
@@ -337,8 +776,8 @@ content.innerHTML=pages[type];
 }
 
 
-
 </script>
+
 
 
 </body>
